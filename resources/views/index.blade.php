@@ -8,11 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<h1>User</h1>
+<a href="/users/">User</a>
+<a href="/companies/">companies</a>
+<a href="/jobs/">Jobs</a>
 
-@foreach($jobs as $job)
-    <h2>{{$job['name']}}</h2>
-    <h2>{{$job['description']}}</h2>
-@endforeach
 </body>
 </html>

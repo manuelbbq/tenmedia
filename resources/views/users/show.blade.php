@@ -8,11 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<h1>User</h1>
+<h1>{{$user['id']}}</h1>
+<h1>{{$user['name']}}</h1>
+<h1>{{$user['email']}}</h1>
+<ul>
+    @foreach($user->companies as $company)
+        <li>{{$company['name']}}</li>
+    @endforeach
+</ul>
 
-@foreach($users as $user)
-    <h2>{{$user['name']}}</h2>
-    <h2>{{$user['email']}}</h2>
-@endforeach
 </body>
 </html>

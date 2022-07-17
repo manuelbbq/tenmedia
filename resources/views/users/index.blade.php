@@ -8,17 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Companys</h1>
+<h1>User</h1>
 
-@foreach($companys as $company)
-    <h2>{{$company['name']}}</h2>
-    <h2>{{$company['email']}}</h2>
-    <h2>{{$company['website']}}</h2>
-    <ul>
-    @foreach($company->users as $user)
-    <li>{{$user['name']}}</li>
-    @endforeach
-    </ul>
+@foreach($users as $user)
+    <a href="/users/{{$user['id']}}">{{$user['name']}}</a>
+    <h2>{{$user['email']}}</h2>
+    <a href="/users/delete/{{$user['id']}}">delete</a>
+    <a href="/users/update/{{$user['id']}}">change</a>
+    <br>
+
 @endforeach
+<a href="/users/newuser/">New user</a>
 </body>
 </html>

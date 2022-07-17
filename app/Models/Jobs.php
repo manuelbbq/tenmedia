@@ -9,7 +9,7 @@ class Jobs extends Model
 {
     use HasFactory;
 
-    public function companies()
+    public function company()
     {
         return $this->belongsTo(Company::class);
     }

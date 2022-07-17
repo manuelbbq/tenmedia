@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreJobsRequest;
-use App\Http\Requests\UpdateJobsRequest;
-use App\Models\Jobs;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class JobsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Jobs::all();
-        return view('jobs.index',compact('jobs'));
+        $users = User::all();
+        return view('users.index',compact('users'));
     }
 
     /**
@@ -32,10 +31,10 @@ class JobsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreJobsRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreJobsRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -43,21 +42,22 @@ class JobsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Jobs $jobs)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.show',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jobs $jobs)
+    public function edit($id)
     {
         //
     }
@@ -65,11 +65,11 @@ class JobsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateJobsRequest  $request
-     * @param  \App\Models\Jobs  $jobs
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJobsRequest $request, Jobs $jobs)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +77,10 @@ class JobsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jobs $jobs)
+    public function destroy($id)
     {
         //
     }

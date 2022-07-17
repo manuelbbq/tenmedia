@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\JobsController;
+use App\Http\Controllers\UserController;
 use App\Models\Company;
 use App\Models\Jobs;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +17,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('index');
+});
+
+// All Companies
+
+
+Route::get('/companies',[CompanyController::class,'index']);
+
+// All Jobs
+Route::get('/jobs',[JobsController::class,'index']);
+
+
+
 // All User
-Route::get('/users', function () {
-    return view('user',['users' => User::all()]);
-});
-Route::get('/companys', function () {
-    return view('companys',['companys' => Company::all()]);
-});
-Route::get('/jobs', function () {
-    return view('jobs',['jobs' => Jobs::all()]);
-});
+Route::get('/users', [UserController::class,'index']);
+//Single USer
+Route::get('/users/{id}',[UserController::class,'show']);
