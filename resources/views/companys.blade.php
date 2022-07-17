@@ -14,7 +14,11 @@
     <h2>{{$company['name']}}</h2>
     <h2>{{$company['email']}}</h2>
     <h2>{{$company['website']}}</h2>
-
+    <ul>
+    @foreach($company->users as $user)
+    <li>{{$user['name']}}</li>
+    @endforeach
+    </ul>
 @endforeach
 </body>
 </html>
