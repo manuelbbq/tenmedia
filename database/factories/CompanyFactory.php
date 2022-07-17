@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Jobs;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,4 +24,7 @@ class CompanyFactory extends Factory
 
         ];
     }
+
+
+
 }

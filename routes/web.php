@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Company;
+use App\Models\Jobs;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,7 @@ Route::get('/users', function () {
 });
 Route::get('/companys', function () {
     return view('companys',['companys' => Company::all()]);
+});
+Route::get('/jobs', function () {
+    return view('jobs',['jobs' => Jobs::all()]);
 });
