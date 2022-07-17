@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Company;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+// All User
+Route::get('/users', function () {
+    return view('user',['users' => User::all()]);
+});
+Route::get('/companys', function () {
+    return view('companys',['companys' => Company::all()]);
 });
