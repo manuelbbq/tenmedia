@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -16,7 +17,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return view('companies.index',compact('companies'));
+        return view('companies.index', compact('companies'));
     }
 
     /**
@@ -33,15 +34,15 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCompanyRequest  $request
+     * @param \App\Http\Requests\StoreCompanyRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCompanyRequest $request)
     {
         $formFields = $request->validate([
-            'name'=>'required',
-            'email'=>['required','email'],
-            'website'=>'required'
+            'name' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required'
         ]);
         Company::create($formFields);
 
@@ -51,45 +52,55 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        //
+        $company = Company::find($id);
+        return view('companies.show', compact('company'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($id)
     {
-        //
+        $company = Company::find($id);
+        return view('companies.edit', compact('company'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCompanyRequest  $request
-     * @param  \App\Models\Company  $company
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyRequest $request, Company $company)
+    public function update(UpdateCompanyRequest $request, $id)
     {
-        //
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required',
+
+        ]);
+        $company = Company::find($id);
+        $company->update($formFields);
+
+        return redirect('/companies');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
-        //
+        Company::find($id)->delete();
+
+        return redirect('/companies');
     }
 }

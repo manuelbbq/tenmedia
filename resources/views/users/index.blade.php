@@ -14,7 +14,7 @@
     <div>
         <p>Name: <a href="/users/{{$user['id']}}">{{$user['name']}}</a></p>
         <p>email: {{$user['email']}}</p>
-        <a href="/users/delete/{{$user['id']}}">delete</a>
+        <a href="/users/destroy/{{$user['id']}}">Delete</a>
         <a href="/users/edit/{{$user['id']}}">change</a>
     </div>
 @endforeach
