@@ -9,17 +9,17 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','email','website'];
+    protected $fillable = ['name', 'email', 'website'];
 
 
-        public function jobs()
+    public function jobs()
     {
         return $this->hasMany(Jobs::class);
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'company_users','company_id','user_id');
+        return $this->belongsToMany(User::class, 'company_users', 'company_id', 'user_id');
 
 
     }

@@ -30,7 +30,7 @@
         @error('website')
         <p>{{$message}}</p>
         @enderror
-
+    </label>
 
     <button>create</button>
 </form>

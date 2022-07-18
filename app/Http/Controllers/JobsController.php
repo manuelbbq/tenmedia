@@ -16,7 +16,7 @@ class JobsController extends Controller
     public function index()
     {
         $jobs = Jobs::all();
-        return view('jobs.index',compact('jobs'));
+        return view('jobs.index', compact('jobs'));
     }
 
     /**
@@ -32,7 +32,7 @@ class JobsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreJobsRequest  $request
+     * @param \App\Http\Requests\StoreJobsRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreJobsRequest $request)
@@ -43,7 +43,7 @@ class JobsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
     public function show(Jobs $jobs)
@@ -54,7 +54,7 @@ class JobsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
     public function edit(Jobs $jobs)
@@ -65,8 +65,8 @@ class JobsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateJobsRequest  $request
-     * @param  \App\Models\Jobs  $jobs
+     * @param \App\Http\Requests\UpdateJobsRequest $request
+     * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateJobsRequest $request, Jobs $jobs)
@@ -77,7 +77,7 @@ class JobsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jobs  $jobs
+     * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
     public function destroy(Jobs $jobs)

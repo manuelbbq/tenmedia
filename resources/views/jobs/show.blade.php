@@ -13,18 +13,18 @@
 <h1>{{$company['email']}}</h1>
 <h1>{{$company['website']}}</h1>
 <p>Users</p>
-        <ul>
-            @foreach($company->users as $user)
-                <li><a href="/users/{{$user['id']}}">{{$user['name']}}</a></li>
-            @endforeach
-        </ul>
+<ul>
+    @foreach($company->users as $user)
+        <li><a href="/users/{{$user['id']}}">{{$user['name']}}</a></li>
+    @endforeach
+</ul>
 <br>
 <p>Jobs</p>
-        <ul>
-            @foreach($company->jobs as $job)
-                <li><a href="/job/{{$job['id']}}">{{$job['name']}}</a></li>
-            @endforeach
-        </ul>
+<ul>
+    @foreach($company->jobs as $job)
+        <li><a href="/job/{{$job['id']}}">{{$job['name']}}</a></li>
+    @endforeach
+</ul>
 
 
 </body>

@@ -27,7 +27,6 @@
     </label>
 
 
-
     <button>change</button>
 </form>
 <a href="/users/destroy/{{$user['id']}}">Delete</a>

@@ -6,4 +6,4 @@ Case study tenmedia
 3) Create Model ... for CompanyUser table
 4) Write all Crud functions
 5) add login
-6) add JPolicies
+6) add Policies

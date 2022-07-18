@@ -35,7 +35,7 @@ Route::get('/companies/edit/{id}', [CompanyController::class, 'edit']);
 // Update Company
 Route::post('/companies/update/{id}', [CompanyController::class, 'update']);
 // Destroy Company
-Route::get('/companies/destroy/{id}',[CompanyController::class, 'destroy']);
+Route::get('/companies/destroy/{id}', [CompanyController::class, 'destroy']);
 
 // All Jobs
 Route::get('/jobs', [JobsController::class, 'index']);
@@ -50,7 +50,7 @@ Route::post('/users/store', [UserController::class, 'store']);
 //Edit user
 Route::get('/users/edit/{id}', [UserController::class, 'edit']);
 //destroy User
-Route::get('/users/destroy/{id}',[UserController::class, 'destroy']);
+Route::get('/users/destroy/{id}', [UserController::class, 'destroy']);
 
 //Single User
 Route::get('/users/{id}', [UserController::class, 'show']);
