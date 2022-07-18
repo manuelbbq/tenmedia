@@ -11,9 +11,11 @@
 <h1>Jobs</h1>
 
 @foreach($jobs as $job)
-    <h2>Title: {{$job['name']}}</h2>
-    <h2>Description: {{$job['description']}}</h2>
-    <h2>Company: {{$job->company['name']}}</h2>
+    <div>
+        <h2>Title: {{$job['name']}}</h2>
+        <h2>Description: {{$job['description']}}</h2>
+        <h2>Company: {{$job->company['name']}}</h2>
+    </div>
 @endforeach
 </body>
 </html>

@@ -26,7 +26,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
+
     }
 
     /**
@@ -37,7 +38,14 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        //
+        $formFields = $request->validate([
+            'name'=>'required',
+            'email'=>['required','email'],
+            'website'=>'required'
+        ]);
+        Company::create($formFields);
+
+        return redirect('/companies');
     }
 
     /**

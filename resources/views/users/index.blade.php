@@ -11,13 +11,13 @@
 <h1>User</h1>
 
 @foreach($users as $user)
-    <a href="/users/{{$user['id']}}">{{$user['name']}}</a>
-    <h2>{{$user['email']}}</h2>
-    <a href="/users/delete/{{$user['id']}}">delete</a>
-    <a href="/users/update/{{$user['id']}}">change</a>
-    <br>
-
+    <div>
+        <p>Name: <a href="/users/{{$user['id']}}">{{$user['name']}}</a></p>
+        <p>email: {{$user['email']}}</p>
+        <a href="/users/delete/{{$user['id']}}">delete</a>
+        <a href="/users/edit/{{$user['id']}}">change</a>
+    </div>
 @endforeach
-<a href="/users/newuser/">New user</a>
+<a href="/users/create/">New user</a>
 </body>
 </html>

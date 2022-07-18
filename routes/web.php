@@ -22,9 +22,12 @@ Route::get('/', function () {
 });
 
 // All Companies
-
-
 Route::get('/companies',[CompanyController::class,'index']);
+//Create Company
+Route::get('/companies/create',[CompanyController::class,'create']);
+//Store Company
+Route::post('/companies/store',[CompanyController::class,'store']);
+
 
 // All Jobs
 Route::get('/jobs',[JobsController::class,'index']);
@@ -33,5 +36,10 @@ Route::get('/jobs',[JobsController::class,'index']);
 
 // All User
 Route::get('/users', [UserController::class,'index']);
-//Single USer
+//Create User
+Route::get('/users/create',[UserController::class,'create']);
+//Store user
+Route::post('users/store',[UserController::class,'store']);
+//Single User
 Route::get('/users/{id}',[UserController::class,'show']);
+

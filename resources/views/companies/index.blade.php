@@ -11,14 +11,17 @@
 <h1>Companys</h1>
 
 @foreach($companies as $company)
-    <h2>{{$company['name']}}</h2>
-    <h2>{{$company['email']}}</h2>
-    <h2>{{$company['website']}}</h2>
-    <ul>
-    @foreach($company->users as $user)
-    <li><a href="/users/{{$user['id']}}">{{$user['name']}}</a></li>
-    @endforeach
-    </ul>
+    <div>
+        <h2>{{$company['name']}}</h2>
+        <h2>{{$company['email']}}</h2>
+        <h2>{{$company['website']}}</h2>
+        <ul>
+            @foreach($company->users as $user)
+                <li><a href="/users/{{$user['id']}}">{{$user['name']}}</a></li>
+            @endforeach
+        </ul>
+    </div>
 @endforeach
+<a href="/companies/create/">New Company</a>
 </body>
 </html>

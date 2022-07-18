@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'name'=>'required',
+            'email'=>['required','email'],
+            'password'=>'required',
+            'password2'=>'required','same:password'
+        ]);
+        User::create($formFields);
+
+        return redirect('/users');
     }
 
     /**
