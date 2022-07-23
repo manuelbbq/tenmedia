@@ -8,24 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<h1>{{$company['id']}}</h1>
-<h1>{{$company['name']}}</h1>
-<h1>{{$company['email']}}</h1>
-<h1>{{$company['website']}}</h1>
-<p>Users</p>
-<ul>
-    @foreach($company->users as $user)
-        <li><a href="/users/{{$user['id']}}">{{$user['name']}}</a></li>
-    @endforeach
-</ul>
-<br>
-<p>Jobs</p>
-<ul>
-    @foreach($company->jobs as $job)
-        <li><a href="/job/{{$job['id']}}">{{$job['name']}}</a></li>
-    @endforeach
-</ul>
-
+<div>
+    <h2>Title: {{$jobs['name']}}</h2>
+    <h2>Description: {{$jobs['description']}}</h2>
+    <h2>Company: {{$jobs->company['name']}}</h2>
+</div>
 
 </body>
 </html>

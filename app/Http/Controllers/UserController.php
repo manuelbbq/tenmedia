@@ -80,7 +80,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email'],
+
+        ]);
+        $user = User::find($id);
+        $user -> update($formFields);
+
+        return redirect('users');
     }
 
     /**

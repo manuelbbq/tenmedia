@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/companies/store" method="post">
+<form action="/jobs/store" method="post">
     @csrf
     <label>
         name: <input type="text" name="name">
@@ -19,15 +19,15 @@
     </label>
 
     <label>
-        email:<input type="email" name="email">
-        @error('email')
+        description:<input type="text" name="description">
+        @error('description')
         <p>{{$message}}</p>
         @enderror
 
     </label>
-    <label>
-        website: <input type="text" name="website">
-        @error('website')
+    <label hidden>
+        Company_id: <input hidden type="number" name="company_id" value="{{$id}}">
+        @error('company_id')
         <p>{{$message}}</p>
         @enderror
     </label>

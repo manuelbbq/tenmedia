@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJobsRequest;
 use App\Http\Requests\UpdateJobsRequest;
+use App\Models\Company;
 use App\Models\Jobs;
+use function Sodium\compare;
 
 class JobsController extends Controller
 {
@@ -24,9 +26,9 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('jobs.create', compact('id'));
     }
 
     /**
@@ -37,7 +39,15 @@ class JobsController extends Controller
      */
     public function store(StoreJobsRequest $request)
     {
-        //
+        $formFields = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'company_id' => 'required'
+        ]);
+        Jobs::create($formFields);
+        $company = Company::find($request['company_id']);
+
+        return view('companies.show', compact('company'));
     }
 
     /**
@@ -48,7 +58,7 @@ class JobsController extends Controller
      */
     public function show(Jobs $jobs)
     {
-        //
+        return view('jobs.show',compact('jobs'));
     }
 
     /**

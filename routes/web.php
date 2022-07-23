@@ -39,7 +39,12 @@ Route::get('/companies/destroy/{id}', [CompanyController::class, 'destroy']);
 
 // All Jobs
 Route::get('/jobs', [JobsController::class, 'index']);
-
+// Create Jobs
+Route::get('/jobs/create/{id}', [JobsController::class, 'create']);
+// Store Job
+Route::post('/jobs/store' , [JobsController::class, 'store']);
+//single Job
+Route::get('/jobs/show/{jobs}', [JobsController::class, 'show']);
 
 // All User
 Route::get('/users', [UserController::class, 'index']);
@@ -49,8 +54,12 @@ Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users/store', [UserController::class, 'store']);
 //Edit user
 Route::get('/users/edit/{id}', [UserController::class, 'edit']);
+// Update User
+Route::post('/users/update/{id}', [UserController::class, 'update']);
 //destroy User
 Route::get('/users/destroy/{id}', [UserController::class, 'destroy']);
+
+
 
 //Single User
 Route::get('/users/{id}', [UserController::class, 'show']);

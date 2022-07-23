@@ -22,9 +22,10 @@
 <p>Jobs</p>
 <ul>
     @foreach($company->jobs as $job)
-        <li><a href="/job/{{$job['id']}}">{{$job['name']}}</a></li>
+        <li><a href="/jobs/show/{{$job['id']}}">{{$job['name']}}</a></li>
     @endforeach
 </ul>
+<a href="/jobs/create/{{$company['id']}}">new Job</a>
 
 
 </body>
