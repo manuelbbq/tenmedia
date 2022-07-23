@@ -55,9 +55,9 @@ class CompanyController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Company $company)
     {
-        $company = Company::find($id);
+//        $company = Company::find($id);
         return view('companies.show', compact('company'));
     }
 
@@ -66,9 +66,9 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Company $company)
     {
-        $company = Company::find($id);
+//        $company = Company::find($id);
         return view('companies.edit', compact('company'));
     }
 
@@ -78,7 +78,7 @@ class CompanyController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyRequest $request, $id)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
         $formFields = $request->validate([
             'name' => 'required',
@@ -86,7 +86,7 @@ class CompanyController extends Controller
             'website' => 'required',
 
         ]);
-        $company = Company::find($id);
+//        $company = Company::find($id);
         $company->update($formFields);
 
         return redirect('/companies');
@@ -97,9 +97,9 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        Company::find($id)->delete();
+        $company->delete();
 
         return redirect('/companies');
     }

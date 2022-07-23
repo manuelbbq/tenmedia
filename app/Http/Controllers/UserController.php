@@ -50,24 +50,24 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
+//        $user = User::find($id);
         return view('users.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
+//        $user = User::find($id);
         return view('users.edit', compact('user'));
     }
 
@@ -75,17 +75,17 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         $formFields = $request->validate([
             'name' => 'required',
             'email' => ['required', 'email'],
 
         ]);
-        $user = User::find($id);
+//        $user = User::find($id);
         $user -> update($formFields);
 
         return redirect('users');
@@ -94,12 +94,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        User::find($id)->delete();
+        $user->delete();
 
         return redirect('/users');
     }

@@ -29,13 +29,13 @@ Route::get('/companies/create', [CompanyController::class, 'create']);
 //Store Company
 Route::post('/companies/store', [CompanyController::class, 'store']);
 //single Company
-Route::get('/companies/show/{id}', [CompanyController::class, 'show']);
+Route::get('/companies/show/{company}', [CompanyController::class, 'show']);
 // Edit Company
-Route::get('/companies/edit/{id}', [CompanyController::class, 'edit']);
+Route::get('/companies/edit/{company}', [CompanyController::class, 'edit']);
 // Update Company
-Route::post('/companies/update/{id}', [CompanyController::class, 'update']);
+Route::post('/companies/update/{company}', [CompanyController::class, 'update']);
 // Destroy Company
-Route::get('/companies/destroy/{id}', [CompanyController::class, 'destroy']);
+Route::get('/companies/destroy/{company}', [CompanyController::class, 'destroy']);
 
 // All Jobs
 Route::get('/jobs', [JobsController::class, 'index']);
@@ -53,14 +53,14 @@ Route::get('/users/create', [UserController::class, 'create']);
 //Store user
 Route::post('/users/store', [UserController::class, 'store']);
 //Edit user
-Route::get('/users/edit/{id}', [UserController::class, 'edit']);
+Route::get('/users/edit/{user}', [UserController::class, 'edit']);
 // Update User
-Route::post('/users/update/{id}', [UserController::class, 'update']);
+Route::post('/users/update/{user}', [UserController::class, 'update']);
 //destroy User
-Route::get('/users/destroy/{id}', [UserController::class, 'destroy']);
+Route::get('/users/destroy/{user}', [UserController::class, 'destroy']);
 
 
 
 //Single User
-Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users/{user}', [UserController::class, 'show']);
 
