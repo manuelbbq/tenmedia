@@ -53,7 +53,8 @@ class JobsPolicy
      */
     public function update(User $user, Jobs $jobs)
     {
-        //
+        return $user['id'] === $jobs['user_id'];
+
     }
 
     /**
@@ -65,7 +66,7 @@ class JobsPolicy
      */
     public function delete(User $user, Jobs $jobs)
     {
-        //
+        return $user['id'] === $jobs['user_id'];
     }
 
     /**

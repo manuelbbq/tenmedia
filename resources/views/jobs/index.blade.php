@@ -9,7 +9,6 @@
 </head>
 <body>
 <h1>Jobs</h1>
-
 @foreach($jobs as $job)
     <div>
         <h2>Title: {{$job['name']}}</h2>

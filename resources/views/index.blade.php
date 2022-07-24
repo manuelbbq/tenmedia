@@ -8,9 +8,16 @@
     <title>Document</title>
 </head>
 <body>
+@guest
+    <div>no login</div>
+@else
+<div>Login as {{ Auth::user()->name }}</div>
+@endguest
 <a href="/users/">User</a>
 <a href="/companies/">companies</a>
 <a href="/jobs/">Jobs</a>
+<a href="/login/">login</a>
+<a href="/user/create/">New User</a>
 
 </body>
 </html>

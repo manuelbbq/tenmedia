@@ -20,7 +20,8 @@ class JobsFactory extends Factory
         return [
             'name' => $this->faker->jobTitle(),
             'description' => $this->faker->text(20),
-            'company_id' => $this->faker->numberBetween(1, 10)
+            'company_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 10)
 
         ];
     }

@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('auth.register');
     }
 
     /**
@@ -39,12 +39,16 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'password' => 'required',
-            'password2' => 'required', 'same:password'
-        ]);
-        User::create($formFields);
+            'password' => ['required', 'confirmed']
 
-        return redirect('/users');
+        ]);
+        $formFields['password'] = bcrypt($formFields['password']);
+
+        $user = User::create($formFields);
+
+        auth()->login($user);
+
+        return redirect('/');
     }
 
     /**
@@ -86,7 +90,7 @@ class UserController extends Controller
 
         ]);
 //        $user = User::find($id);
-        $user -> update($formFields);
+        $user->update($formFields);
 
         return redirect('users');
     }
@@ -102,5 +106,10 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/users');
+    }
+
+    public function login()
+    {
+        return view('auth.login');
     }
 }

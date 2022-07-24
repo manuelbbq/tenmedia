@@ -42,7 +42,8 @@ class JobsController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'company_id' => 'required'
+            'company_id' => 'required',
+            'user_id'=> 'required'
         ]);
         Jobs::create($formFields);
         $company = Company::find($request['company_id']);
@@ -58,7 +59,7 @@ class JobsController extends Controller
      */
     public function show(Jobs $jobs)
     {
-        return view('jobs.show',compact('jobs'));
+        return view('jobs.show', compact('jobs'));
     }
 
     /**
@@ -92,6 +93,9 @@ class JobsController extends Controller
      */
     public function destroy(Jobs $jobs)
     {
-        //
+        if (auth()->user()->can('delete', $jobs)) {
+            $jobs->delete();
+        }
+        return redirect('/companies');
     }
 }

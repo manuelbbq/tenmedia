@@ -31,6 +31,12 @@
         <p>{{$message}}</p>
         @enderror
     </label>
+    <label hidden>
+        Company_id: <input hidden type="number" name="user_id" value="{{auth()->user()['id']}}">
+        @error('user_id')
+        <p>{{$message}}</p>
+        @enderror
+    </label>
 
     <button>create</button>
 </form>
