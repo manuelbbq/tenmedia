@@ -70,7 +70,7 @@ class JobsController extends Controller
      */
     public function edit(Jobs $jobs)
     {
-        //
+        return view('jobs.edit', compact('jobs'));
     }
 
     /**
@@ -82,7 +82,17 @@ class JobsController extends Controller
      */
     public function update(UpdateJobsRequest $request, Jobs $jobs)
     {
-        //
+        if (auth()->user()->can('update', $jobs)) {
+            $formFields = $request->validate([
+                'name' => 'required',
+                'description' => 'required',
+                ]);
+
+            $jobs->update($formFields);
+
+            return view('jobs.show',compact('jobs'));
+        }
+
     }
 
     /**

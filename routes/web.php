@@ -47,7 +47,10 @@ Route::get('/jobs/create/{id}', [JobsController::class, 'create']);
 Route::post('/jobs/store' , [JobsController::class, 'store']);
 //single Job
 Route::get('/jobs/show/{jobs}', [JobsController::class, 'show']);
-
+//edit Job
+Route::get('jobs/edit/{jobs}', [JobsController::class, 'edit']);
+// update job
+Route::post('jobs/update/{jobs}', [JobsController::class, 'update']);
 //destroy Job
 Route::get('/jobs/destroy/{jobs}',[JobsController::class, 'destroy']);
 

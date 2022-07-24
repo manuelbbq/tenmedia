@@ -15,5 +15,6 @@
     <h2>User: {{$jobs->user['name']}}</h2>
 </div>
 <a href="/jobs/destroy/{{$jobs['id']}}">Delete</a>
+<a href="/jobs/edit/{{$jobs['id']}}">Edit</a>
 </body>
 </html>
