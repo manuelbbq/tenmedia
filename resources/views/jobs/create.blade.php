@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/jobs/store" method="post">
+<form action="/jobs" method="post">
     @csrf
+
     <label>
         name: <input type="text" name="name">
         @error('name')

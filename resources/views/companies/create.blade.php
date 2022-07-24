@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/companies/store" method="post">
+<form action="/companies/" method="post">
     @csrf
     <label>
         name: <input type="text" name="name">

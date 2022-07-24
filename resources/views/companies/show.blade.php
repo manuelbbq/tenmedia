@@ -21,8 +21,12 @@
 <br>
 <p>Jobs</p>
 <ul>
-    @foreach($company->jobs as $job)
-        <li><a href="/jobs/show/{{$job['id']}}">{{$job['name']}}</a></li>
+    @foreach($company->jobs as $jobs)
+        <p>{{$jobs['name']}}</p>
+        <form action="/jobs/{{$jobs['id']}}/edit" method="get">
+            <button>Edit</button>
+            <a href="/jobs/{{$jobs['id']}}/edit">Edit</a>
+        </form>
     @endforeach
 </ul>
 <a href="/jobs/create/{{$company['id']}}">new Job</a>

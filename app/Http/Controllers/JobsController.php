@@ -75,6 +75,7 @@ class JobsController extends Controller
      */
     public function edit(Jobs $jobs)
     {
+//        dd($jobs);
         return response()
             ->view('jobs.edit', compact('jobs'));
     }

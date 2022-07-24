@@ -24,35 +24,39 @@ Route::get('/', function () {
     return view('index');
 });
 
-// All Companies
-Route::get('/companies', [CompanyController::class, 'index']);
-//Create Company
-Route::get('/companies/create', [CompanyController::class, 'create']);
-//Store Company
-Route::post('/companies/store', [CompanyController::class, 'store']);
-//single Company
-Route::get('/companies/show/{company}', [CompanyController::class, 'show']);
-// Edit Company
-Route::get('/companies/edit/{company}', [CompanyController::class, 'edit']);
-// Update Company
-Route::post('/companies/update/{company}', [CompanyController::class, 'update']);
-// Destroy Company
-Route::get('/companies/destroy/{company}', [CompanyController::class, 'destroy']);
+Route::resource('/companies', CompanyController::class);
+Route::resource('/jobs', JobsController::class);
 
-// All Jobs
-Route::get('/jobs', [JobsController::class, 'index']);
-// Create Jobs
-Route::get('/jobs/create/{id}', [JobsController::class, 'create']);
-// Store Job
-Route::post('/jobs/store' , [JobsController::class, 'store']);
-//single Job
-Route::get('/jobs/show/{jobs}', [JobsController::class, 'show']);
-//edit Job
-Route::get('jobs/edit/{jobs}', [JobsController::class, 'edit']);
-// update job
-Route::post('jobs/update/{jobs}', [JobsController::class, 'update']);
-//destroy Job
-Route::get('/jobs/destroy/{jobs}',[JobsController::class, 'destroy']);
+
+// All Companies
+//Route::get('/companies', [CompanyController::class, 'index']);
+////Create Company
+//Route::get('/companies/create', [CompanyController::class, 'create']);
+////Store Company
+//Route::post('/companies/store', [CompanyController::class, 'store']);
+////single Company
+//Route::get('/companies/show/{company}', [CompanyController::class, 'show']);
+//// Edit Company
+//Route::get('/companies/edit/{company}', [CompanyController::class, 'edit']);
+//// Update Company
+//Route::post('/companies/update/{company}', [CompanyController::class, 'update']);
+//// Destroy Company
+//Route::get('/companies/destroy/{company}', [CompanyController::class, 'destroy']);
+//
+//// All Jobs
+//Route::get('/jobs', [JobsController::class, 'index']);
+//// Create Jobs
+//Route::get('/jobs/create/{id}', [JobsController::class, 'create']);
+//// Store Job
+//Route::post('/jobs/store' , [JobsController::class, 'store']);
+////single Job
+//Route::get('/jobs/show/{jobs}', [JobsController::class, 'show']);
+////edit Job
+//Route::get('jobs/edit/{jobs}', [JobsController::class, 'edit']);
+//// update job
+//Route::post('jobs/update/{jobs}', [JobsController::class, 'update']);
+////destroy Job
+//Route::get('/jobs/destroy/{jobs}',[JobsController::class, 'destroy']);
 
 // All User
 Route::get('/users', [UserController::class, 'index']);

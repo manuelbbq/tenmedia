@@ -14,6 +14,10 @@
         <h2>Title: {{$job['name']}}</h2>
         <h2>Description: {{$job['description']}}</h2>
         <h2>Company: {{$job->company['name']}}</h2>
+        <form action="/jobs/{{$job['id']}}" method="get">
+            <button>Edit</button>
+            <a href="/jobs/{{$job['id']}}">Show</a>
+        </form>
     </div>
 @endforeach
 </body>

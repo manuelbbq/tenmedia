@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/jobs/update/{{$jobs['id']}}" method="post">
+<form action="/jobs/{{$jobs['id']}}" method="post">
     @csrf
+     @method('Put')
     <label>
         name: <input type="text" name="name" value="{{$jobs['name']}}">
         @error('name')
@@ -30,6 +31,12 @@
 
     <button>change</button>
 </form>
-<a href="/jobs/destroy/{{$jobs['id']}}">Delete</a>
+
+
+<form method="post" action="/jobs/{{$jobs['id']}}">
+    @csrf
+    @method('DELETE')
+    <button>Delete</button>
+</form>
 </body>
 </html>

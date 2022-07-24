@@ -12,11 +12,11 @@
 
 @foreach($companies as $company)
     <div>
-        <p>Name: <a href="/companies/show/{{$company['id']}}">{{$company['name']}}</a></p>
+        <p>Name: <a href="/companies/{{$company['id']}}">{{$company['name']}}</a></p>
         <p>{{$company['email']}}</p>
         <p>{{$company['website']}}</p>
     </div>
-    <a href="/companies/edit/{{$company['id']}}">Edit</a>
+    <a href="/companies/{{$company['id']}}/edit">Edit</a>
 @endforeach
 <a href="/companies/create/">New Company</a>
 </body>

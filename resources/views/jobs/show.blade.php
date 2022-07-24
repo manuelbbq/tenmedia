@@ -11,10 +11,19 @@
 <div>
     <h2>Title: {{$jobs['name']}}</h2>
     <h2>Description: {{$jobs['description']}}</h2>
-    <h2>Company: {{$jobs->company['name']}}</h2>
-    <h2>User: {{$jobs->user['name']}}</h2>
+{{--    <h2>Company: {{$jobs->company['name']}}</h2>/--}}
+{{--    <h2>User: {{$jobs->user['name']}}</h2>--}}
 </div>
-<a href="/jobs/destroy/{{$jobs['id']}}">Delete</a>
-<a href="/jobs/edit/{{$jobs['id']}}">Edit</a>
+<form method="post" action="/jobs/{{$jobs['id']}}">
+    @csrf
+    @method('DELETE')
+    <button>Delete</button>
+</form>
+<form method="get" action="/jobs/{{$jobs['id']}}/edit">
+    @csrf
+
+    <button>Edit</button>
+</form>
+
 </body>
 </html>

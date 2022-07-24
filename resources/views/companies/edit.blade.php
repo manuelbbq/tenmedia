@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/companies/update/{{$company['id']}}" method="post">
+<form action="/companies/{{$company['id']}}" method="post">
     @csrf
+    @method('PUT')
     <label>
         name: <input type="text" name="name" value="{{$company['name']}}">
         @error('name')
@@ -36,6 +37,10 @@
 
     <button>change</button>
 </form>
-<a href="/companies/destroy/{{$company['id']}}">Delete</a>
+<form method="post" action="/companies/{{$company['id']}}">
+    @csrf
+    @method('DELETE')
+    <button>Delete</button>
+</form>
 </body>
 </html>
