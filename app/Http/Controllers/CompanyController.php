@@ -17,7 +17,8 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return view('companies.index', compact('companies'));
+        return response()
+            ->view('companies.index', compact('companies'));
     }
 
     /**
@@ -27,7 +28,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        return response()
+            ->view('companies.create');
 
     }
 
@@ -35,7 +37,7 @@ class CompanyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \App\Http\Requests\StoreCompanyRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(StoreCompanyRequest $request)
     {
@@ -58,7 +60,8 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
 //        $company = Company::find($id);
-        return view('companies.show', compact('company'));
+        return response()
+            ->view('companies.show', compact('company'));
     }
 
     /**
@@ -69,14 +72,15 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
 //        $company = Company::find($id);
-        return view('companies.edit', compact('company'));
+        return response()
+            -> view('companies.edit', compact('company'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
@@ -95,7 +99,7 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Company $company)
     {

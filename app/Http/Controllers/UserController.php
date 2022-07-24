@@ -15,7 +15,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return response()
+            -> view('users.index', compact('users'));
     }
 
     /**
@@ -25,14 +26,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return response()
+            ->view('auth.register');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -60,7 +62,8 @@ class UserController extends Controller
     public function show(User $user)
     {
 //        $user = User::find($id);
-        return view('users.show', compact('user'));
+        return response()
+            ->view('users.show', compact('user'));
     }
 
     /**
@@ -72,7 +75,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
 //        $user = User::find($id);
-        return view('users.edit', compact('user'));
+        return response()
+            ->view('users.edit', compact('user'));
     }
 
     /**
@@ -80,7 +84,7 @@ class UserController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param User $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, User $user)
     {
@@ -99,7 +103,7 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param User $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(User $user)
     {

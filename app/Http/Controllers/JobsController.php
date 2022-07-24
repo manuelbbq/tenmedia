@@ -18,7 +18,9 @@ class JobsController extends Controller
     public function index()
     {
         $jobs = Jobs::all();
-        return view('jobs.index', compact('jobs'));
+        return
+            response()
+                ->view('jobs.index', compact('jobs'));
     }
 
     /**
@@ -28,7 +30,8 @@ class JobsController extends Controller
      */
     public function create($id)
     {
-        return view('jobs.create', compact('id'));
+        return response()
+            ->view('jobs.create', compact('id'));
     }
 
     /**
@@ -48,7 +51,8 @@ class JobsController extends Controller
         Jobs::create($formFields);
         $company = Company::find($request['company_id']);
 
-        return view('companies.show', compact('company'));
+        return response()
+            ->view('companies.show', compact('company'));
     }
 
     /**
@@ -59,7 +63,8 @@ class JobsController extends Controller
      */
     public function show(Jobs $jobs)
     {
-        return view('jobs.show', compact('jobs'));
+        return response()
+            ->view('jobs.show', compact('jobs'));
     }
 
     /**
@@ -70,7 +75,8 @@ class JobsController extends Controller
      */
     public function edit(Jobs $jobs)
     {
-        return view('jobs.edit', compact('jobs'));
+        return response()
+            ->view('jobs.edit', compact('jobs'));
     }
 
     /**
@@ -90,7 +96,8 @@ class JobsController extends Controller
 
             $jobs->update($formFields);
 
-            return view('jobs.show',compact('jobs'));
+            return response()
+                ->view('jobs.show',compact('jobs'));
         }
 
     }
@@ -99,7 +106,7 @@ class JobsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Jobs $jobs
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Jobs $jobs)
     {
