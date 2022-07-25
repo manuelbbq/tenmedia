@@ -58,7 +58,7 @@ class JobsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Jobs $jobs
+     * @param \App\Models\Jobs $job
      * @return \Illuminate\Http\Response
      */
     public function show(Jobs $job)
@@ -74,11 +74,11 @@ class JobsController extends Controller
      * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jobs $jobs)
+    public function edit(Jobs $job)
     {
 //        dd($jobs);
         return response()
-            ->view('jobs.edit', compact('jobs'));
+            ->view('jobs.edit', compact('job'));
     }
 
     /**
