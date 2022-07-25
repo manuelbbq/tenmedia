@@ -9,17 +9,17 @@
 </head>
 <body>
 <div>
-    <h2>Title: {{$jobs['name']}}</h2>
-    <h2>Description: {{$jobs['description']}}</h2>
+    <h2>Title: {{$job['name']}}</h2>
+    <h2>Description: {{$job['description']}}</h2>
 {{--    <h2>Company: {{$jobs->company['name']}}</h2>/--}}
 {{--    <h2>User: {{$jobs->user['name']}}</h2>--}}
 </div>
-<form method="post" action="/jobs/{{$jobs['id']}}">
+<form method="post" action="/jobs/{{$job['id']}}">
     @csrf
     @method('DELETE')
     <button>Delete</button>
 </form>
-<form method="get" action="/jobs/{{$jobs['id']}}/edit">
+<form method="get" action="/jobs/{{$job['id']}}/edit">
     @csrf
 
     <button>Edit</button>

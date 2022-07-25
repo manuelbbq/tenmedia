@@ -29,7 +29,7 @@
         </form>
     @endforeach
 </ul>
-<a href="/jobs/create/{{$company['id']}}">new Job</a>
+<a href="/jobs/create/">new Job</a>
 
 
 </body>

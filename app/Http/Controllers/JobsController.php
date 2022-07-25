@@ -28,10 +28,10 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
         return response()
-            ->view('jobs.create', compact('id'));
+            ->view('jobs.create');
     }
 
     /**
@@ -61,10 +61,11 @@ class JobsController extends Controller
      * @param \App\Models\Jobs $jobs
      * @return \Illuminate\Http\Response
      */
-    public function show(Jobs $jobs)
+    public function show(Jobs $job)
     {
+
         return response()
-            ->view('jobs.show', compact('jobs'));
+            ->view('jobs.show', compact('job'));
     }
 
     /**

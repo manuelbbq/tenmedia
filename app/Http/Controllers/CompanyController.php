@@ -54,7 +54,7 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param \App\Models\Company $company
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
@@ -71,7 +71,6 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        dd($company);
         return response()
             -> view('companies.edit', compact('company'));
     }

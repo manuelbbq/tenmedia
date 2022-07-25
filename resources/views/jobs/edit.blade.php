@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/jobs/{{$jobs['id']}}" method="post">
+<form action="/jobs/{{$job['id']}}" method="post">
     @csrf
      @method('Put')
     <label>
-        name: <input type="text" name="name" value="{{$jobs['name']}}">
+        name: <input type="text" name="name" value="{{$job['name']}}">
         @error('name')
         <p>{{$message}}</p>
         @enderror
@@ -20,7 +20,7 @@
     </label>
 
     <label>
-        description:<input type="text" name="description" value="{{$jobs['description']}}">
+        description:<input type="text" name="description" value="{{$job['description']}}">
         @error('description')
         <p>{{$message}}</p>
         @enderror
@@ -33,7 +33,7 @@
 </form>
 
 
-<form method="post" action="/jobs/{{$jobs['id']}}">
+<form method="post" action="/jobs/{{$job['id']}}">
     @csrf
     @method('DELETE')
     <button>Delete</button>
